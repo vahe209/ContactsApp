@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ContactList</string>
+    <string name="Contacts">Contacts</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_phone">write a phone number</string>
+    <string name="save">Save a contact</string>
+    <string name="go_back">Go to back page</string>
+    <string name="delete">delete all contacts</string>
+</resources>
