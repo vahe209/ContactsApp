@@ -27,15 +27,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //items = null;
         Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
+        
         btn = findViewById(R.id.button);
         textName = (EditText) findViewById(R.id.EditName);
         textPhone = (EditText) findViewById(R.id.EditPhone);
         btn_next_activity = findViewById(R.id.btn_next_activity);
         btn_delete = findViewById(R.id.btn_delete);
+        
         btn_delete.setOnClickListener(v -> delContact());
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,18 +43,13 @@ public class MainActivity extends AppCompatActivity {
                 String phone = textPhone.getText().toString();
                 items.add(new Item(name, phone, R.drawable.icon));
             }
-           
         });
-
 
         btn_next_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                // ---------------------------------//
                 intent.putParcelableArrayListExtra("item", (ArrayList) items);
                 startActivity(intent);
-
             }
         });
 
