@@ -42,9 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 String name = textName.getText().toString();
                 String phone = textPhone.getText().toString();
                 items.add(new Item(name, phone, R.drawable.icon));
-
-
             }
+           
         });
 
 
