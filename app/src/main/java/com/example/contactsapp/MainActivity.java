@@ -1,6 +1,9 @@
 package com.example.contactsapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,8 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     EditText textName, textPhone;
@@ -28,20 +34,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
-        
+
         btn = findViewById(R.id.button);
         textName = (EditText) findViewById(R.id.EditName);
         textPhone = (EditText) findViewById(R.id.EditPhone);
         btn_next_activity = findViewById(R.id.btn_next_activity);
         btn_delete = findViewById(R.id.btn_delete);
-        
+
         btn_delete.setOnClickListener(v -> delContact());
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = textName.getText().toString();
                 String phone = textPhone.getText().toString();
-                items.add(new Item(name, phone, R.drawable.icon));
+                items.add(new Item(name, phone, R.drawable.icon, R.drawable.delete));
             }
         });
 

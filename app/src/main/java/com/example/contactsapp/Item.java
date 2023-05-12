@@ -3,20 +3,20 @@ package com.example.contactsapp;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
 
 public class Item  implements Parcelable{
     private String name;
     private String phone;
     private int image;
+    private int imageButton;
 
 
-    public Item(String name, String phone, int image) {
+    public Item(String name, String phone, int image, int imageButton) {
         this.name = name;
         this.phone = phone;
         this.image = image;
+       this.imageButton = imageButton;
     }
 
 
@@ -24,6 +24,15 @@ public class Item  implements Parcelable{
         name = in.readString();
         phone = in.readString();
         image = in.readInt();
+        imageButton = in.readInt();
+    }
+
+    public int getImageButton() {
+        return imageButton;
+    }
+
+    public void setImageButton(int imageButton) {
+        this.imageButton = imageButton;
     }
 
     public static final Creator<Item> CREATOR = new Creator<Item>() {
@@ -69,9 +78,10 @@ public class Item  implements Parcelable{
     }
 
     @Override
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeString(phone);
         parcel.writeInt(image);
+        parcel.writeInt(imageButton);
     }
 }
