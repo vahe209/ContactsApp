@@ -1,25 +1,18 @@
 package com.example.contactsapp;
 
-import static com.example.contactsapp.R.drawable.delete;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Layout;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -61,7 +54,7 @@ public class ContactsActivity extends AppCompatActivity implements AddContactDia
     @Override
     public void applyContact(String name, String phone) {
         recyclerView = findViewById(R.id.rv);
-        itemArrayList.add(new Item(name, phone, R.drawable.icon, delete));
+        itemArrayList.add(new Item(name, phone, R.drawable.icon, R.drawable.delete));
         adapter = new ContactsAdapter(getApplicationContext(), itemArrayList);
         recyclerView.setLayoutManager(new LinearLayoutManager(ContactsActivity.this));
         recyclerView.setAdapter(adapter);
