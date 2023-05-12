@@ -53,10 +53,8 @@ public class ContactsActivity extends AppCompatActivity implements AddContactDia
 
     @Override
     public void applyContact(String name, String phone) {
-        recyclerView = findViewById(R.id.rv);
         itemArrayList.add(new Item(name, phone, R.drawable.icon, R.drawable.delete));
-        adapter = new ContactsAdapter(getApplicationContext(), itemArrayList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ContactsActivity.this));
+        adapter = new ContactsAdapter(getApplicationContext(), itemArrayList);    
         recyclerView.setAdapter(adapter);
     }
 
